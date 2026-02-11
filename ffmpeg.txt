@@ -1,0 +1,22 @@
+nvencc --avhw -c hevc --output-depth 10 \
+--preset P7 --tune hq \
+--cqp 27:30:32 \
+--profile main10 --level 4.1 --tier high \
+--output-csp yuv420 \
+--lookahead 48 --lookahead-level 3 \
+--aq --aq-temporal --aq-strength 3 \
+--bframes 8 --ref 5 --bref-mode middle \
+--gop-len 250 \
+--multiref-l0 4 --multiref-l1 2 --nonrefp \
+--temporal-layers 3 --cu-max 64 --cu-min 8 --tf-level 4 \
+--chroma-qp-offset 2 --output-csp yuv420 \
+--colorrange limited --colorprim bt2020 --transfer smpte2084 --colormatrix bt2020nc \
+--vpp-convolution3d matrix=simple,ythresh=2,cthresh=2,t_ythresh=4,t_cthresh=4 \
+--vpp-deband thre=12,range=24,sample=2,dither=10,rand_each_frame \
+--vpp-smooth qp=18,quality=4 \
+--vpp-resize spline36 \
+--vpp-unsharp 1.2:1.2:0.3  \
+--output-res 1920x1080 \
+--audio-codec aac --audio-bitrate 96 \
+--sub-copy --chapter-copy --attachment-copy \
+-i "{}" -o "{}"
